@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views</title>
+</head>
+<body>
+
+    <h1><%=title%></h1>
+    <p><%=content%></p>
+
+    <form action="/delete" method="post">
+        <input type="text" name="postId" hidden value="<%= postId %>">
+        <input class="btn btn-danger fs-5 btn-lg my-2 button-rad" type="submit" name="delete" value="Delete">
+    </form>
+    <a href="/edit/<%=postId %>"><input type="button" value="edit"></a>
+
+</body>
+</html>

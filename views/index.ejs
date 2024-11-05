@@ -1,0 +1,27 @@
+<%-include ("header")%>
+    <%if (locals.posts){%>
+        <ul>
+            <% posts.forEach(post => {%>
+                <li>
+                    <p><%=post.date %></p>
+                    <h3><a href="/views/<%= posts.indexOf(post)%>"><%= post.title%></a></h3>
+                    <p><%=post.content%></p>
+                </li>
+           <% });%>
+        </ul>
+        <h4>Latest posts</h4>
+        <ul>
+            <% posts.forEach(post=>{%>
+                <li><a href="/views/<%= posts.indexOf(post)%>"><%= post.title%></a></li>                
+            <%});%>
+        </ul>
+        
+        
+        
+    <%}else{%>
+            <h1>No Articles</h1>
+        <%}%>
+    
+
+</body>
+</html>

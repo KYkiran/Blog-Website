@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add article</title>
+</head>
+<body>
+    <%if(locals.postId){%>
+        <h1 class="pt-serif">Edit Post</h1>
+            <form action="/update" method="post">
+                <input type="text" name="title" placeholder="Title" value="<%= title %>" required>
+                <textarea name="content" id="content" cols="30" rows="18" placeholder="Content" style="resize: none;"><%= content %>"</textarea>
+                <input hidden type="text" name="index" value="<%= postId %>">
+                <input type="submit" value="Update Post">
+                
+            </form>
+    <%}else{%>
+    <form action="/article" method="post">
+        <input type="text" name="title" placeholder="Add a title">
+        <input type="text" name="body" placeholder="Add the matter in the article">
+        <button type="submit">Submit</button>
+    </form>
+    <%}%>
+</body>
+</html>
