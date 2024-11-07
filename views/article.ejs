@@ -1,26 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add article</title>
-</head>
-<body>
+<%-include("header")  %>
     <%if(locals.postId){%>
-        <h1 class="pt-serif">Edit Post</h1>
-            <form action="/update" method="post">
-                <input type="text" name="title" placeholder="Title" value="<%= title %>" required>
-                <textarea name="content" id="content" cols="30" rows="18" placeholder="Content" style="resize: none;"><%= content %>"</textarea>
-                <input hidden type="text" name="index" value="<%= postId %>">
-                <input type="submit" value="Update Post">
-                
-            </form>
+        <div class="container">
+                <h1 class="pt-serif text-white mt-3">Edit Post</h1>
+            
+                <form action="/update" method="post">
+                    <label for="title" class="form-label m-2 fs-2 text-white">Title:</label>
+                    <input type="text" name="title" placeholder="Title" value="<%= title %>" required class="form-control m-3">
+                    <label for="content" class="form-label m-2 fs-2 text-white">Content:</label>
+                    <textarea name="content" id="content" rows="12" placeholder="Content" class="form-control m-3"><%= content %></textarea>
+                    <input hidden type="text" name="index" value="<%= postId %>">
+                    <input type="submit" value="Update Post" class="btn btn-success m-3">                    
+                </form>
+            </div>
+            
     <%}else{%>
-    <form action="/article" method="post">
-        <input type="text" name="title" placeholder="Add a title">
-        <input type="text" name="body" placeholder="Add the matter in the article">
-        <button type="submit">Submit</button>
-    </form>
+        <div class="container">
+            <h1 class="pt-serif text-white mt-3">Create Post</h1>
+            <form action="/article" method="post">
+                <label for="title" class="form-label m-2 fs-2 text-white">Title:</label>
+                <input type="text" name="title" placeholder="Add a title" class="form-control m-3 ">
+                <label for="content" class="form-label m-2 fs-2 text-white">Content:</label>
+                <textarea type="text" name="body" placeholder="Add the matter in the article" class="form-control m-3" rows="12"></textarea>
+                <button class="btn btn-success m-3" type="submit">Submit</button>
+            </form>
+        </div>
     <%}%>
 </body>
 </html>

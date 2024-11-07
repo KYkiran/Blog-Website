@@ -1,22 +1,33 @@
 <%-include ("header")%>
     <%if (locals.posts){%>
-        <ul>
-            <% posts.forEach(post => {%>
-                <li>
-                    <p><%=post.date %></p>
-                    <h3><a href="/views/<%= posts.indexOf(post)%>"><%= post.title%></a></h3>
-                    <p><%=post.content%></p>
-                </li>
-           <% });%>
-        </ul>
-        <h4>Latest posts</h4>
-        <ul>
-            <% posts.forEach(post=>{%>
-                <li><a href="/views/<%= posts.indexOf(post)%>"><%= post.title%></a></li>                
-            <%});%>
-        </ul>
-        
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <ul>
+                        <% posts.forEach(post => {%>
+                            <div class="mt-4 p-5 bg-black text-white rounded">
+                                <li>
+                                    <p class="fs-6 fw-light"><%=post.date %></p>
+                                    <h3 class="fs-2 pt-serif"><a href="/views/<%= posts.indexOf(post)%>"><%= post.title%></a></h3>
+                                    <p class="fs-5 my-4"><%=post.content%></p>
+                                </li>
+                            </div>                            
+                       <% });%>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <div class="mt-4 p-5 bg-black text-white rounded">
+                        <h4>Latest posts</h4>
+                        <ul>
+                            <% posts.forEach(post=>{%>
+                                <li><a href="/views/<%= posts.indexOf(post)%>"><%= post.title%></a></li>                
+                            <%});%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+               
         
     <%}else{%>
             <h1>No Articles</h1>
